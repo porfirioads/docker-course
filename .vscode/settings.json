@@ -1,0 +1,17 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  // Prettier configuration for single quotes
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  // TypeScript/JavaScript quote preferences
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  // ESLint configuration (if using ESLint)
+  "eslint.format.enable": true
+}
