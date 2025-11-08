@@ -1,24 +1,13 @@
-# docker-basic-buildx
+# Cron ticker
 
-Aplicación básica que permite la ejecución de un proceso cada 5 segundos.
+A simple Node.js application that uses cron to schedule a task.
 
-Comandos permitidos
-```
-npm install
-npm run test
-npm start
-```
+## Commands
 
-# Comandos importantes usados aquí
+## Docker
 
-## BUILDX
-[Buildx Referencia](https://docs.docker.com/build/building/multi-platform/#getting-started)
-```
-# docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 \
-#    -t klerith/cron-ticker:latest --push .
+Build the Docker image:
 
-# /app /usr /lib
-# FROM --platform=linux/amd64 node:19.2-alpine3.16
-# FROM node:19.2-alpine3.16
-FROM --platform=$BUILDPLATFORM node:19.2-alpine3.16
+```bash
+docker build -t cron-ticker:latest .
 ```

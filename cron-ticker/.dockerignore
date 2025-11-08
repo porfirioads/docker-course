@@ -1,5 +1,3 @@
-
-
 node_modules/
 
 Dockerfile
@@ -7,3 +5,5 @@ Dockerfile
 .git
 .dockerignore
 .gitignore
+
+README.md
