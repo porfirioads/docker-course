@@ -1,17 +1,34 @@
-# Use the official Node.js image as the base image
-FROM node:19.2-alpine
+# BUILDX
+# docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 \
+#    -t klerith/cron-ticker:latest --push .
 
-# Set the working directory
+# /app /usr /lib
+# FROM --platform=linux/amd64 node:19.2-alpine3.16
+FROM --platform=$BUILDPLATFORM node:19.2-alpine3.16
+# FROM node:19.2-alpine3.16
+
+# cd app
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Dest /app
+COPY package.json ./
 
-# Install dependencies
+# Instalar las dependencias
 RUN npm install
 
-# Copy the rest of the application code
+# Dest /app
 COPY . .
 
-# Command to run the application
-CMD ["node", "app.js"]
+# Realizar testing
+RUN npm run test
+
+# Eliminar archivos y directorios no necesarios en PROD
+RUN rm -rf tests && rm -rf node_modules
+
+# Unicamente las dependencias de prod
+RUN npm install --prod
+
+
+# Comando run de la imagen
+CMD [ "node", "app.js" ]
+
