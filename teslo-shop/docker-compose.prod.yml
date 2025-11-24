@@ -19,9 +19,6 @@ services:
       PORT: ${PORT}
       HOST_API: ${HOST_API}
       JWT_SECRET: ${JWT_SECRET}
-    volumes:
-      - ./:/app
-      - /app/node_modules
 
   db:
     image: postgres:14.3
